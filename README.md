@@ -6,6 +6,8 @@ https://zenn.dev/shimabox/articles/a6c015ca98f0f6
 
 ## Usage
 
+`docker compose` は使える想定です。
+
 ### 初期化
 
 ```shell
