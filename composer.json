@@ -12,6 +12,8 @@
     },
     "scripts": {
         "phpstan": "phpstan analyse",
-        "phpstan:6": "phpstan analyse -l 6 -c phpstan.level6.neon"
+        "phpstan:6": "phpstan analyse -l 6 -c phpstan.level6.neon",
+        "phpstan-src": "debug/phpstan-src/bin/phpstan analyse",
+        "phpstan-src:6": "debug/phpstan-src/bin/phpstan analyse -l 6 -c phpstan.level6.neon"
     }
 }

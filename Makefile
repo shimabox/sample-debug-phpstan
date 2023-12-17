@@ -6,6 +6,7 @@ init:
 	@make destroy
 	@make up
 	@make install
+	@make phpstan-src-install
 rebuild:
 	@make destroy
 	@make up
@@ -27,6 +28,10 @@ app:
 phpstan:
 	docker compose exec app composer phpstan
 phpstan\:6:
+	docker compose exec app composer phpstan:6
+phpstan-src:
+	docker compose exec app composer phpstan
+phpstan-src\:6:
 	docker compose exec app composer phpstan:6
 install:
 	docker compose exec app composer install
