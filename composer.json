@@ -12,6 +12,6 @@
     },
     "scripts": {
         "phpstan": "phpstan analyse",
-        "phpstan:6": "phpstan analyse --level=6"
+        "phpstan:6": "phpstan analyse -l 6 -c phpstan.level6.neon"
     }
 }
