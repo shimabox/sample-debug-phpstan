@@ -30,3 +30,7 @@ phpstan\:6:
 	docker compose exec app composer phpstan:6
 install:
 	docker compose exec app composer install
+phpstan-src-install:
+	rm -rf debug/phpstan-src
+	git clone https://github.com/phpstan/phpstan-src.git debug/phpstan-src -b 1.10.x
+	docker compose exec app bash -c "cd debug/phpstan-src && composer install"
