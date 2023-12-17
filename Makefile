@@ -2,6 +2,10 @@ up:
 	docker compose up -d
 build:
 	docker compose build
+init:
+	@make destroy
+	@make up
+	@make install
 rebuild:
 	@make destroy
 	@make up
