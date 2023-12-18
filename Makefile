@@ -30,9 +30,9 @@ phpstan:
 phpstan\:6:
 	docker compose exec app composer phpstan:6
 phpstan-src:
-	docker compose exec app composer phpstan
+	docker compose exec app composer phpstan-src
 phpstan-src\:6:
-	docker compose exec app composer phpstan:6
+	docker compose exec app composer phpstan-src:6
 install:
 	docker compose exec app composer install
 phpstan-src-install:

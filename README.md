@@ -25,7 +25,15 @@ make app
 これで、コンテナー内に入るので
 
 ```shell
+# phpstanを実行する場合
 composer phpstan
+```
+
+or
+
+```shell
+# phpstan-srcを実行する場合
+composer phpstan-src
 ```
 
 してください。
