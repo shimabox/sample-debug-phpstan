@@ -38,6 +38,8 @@ composer phpstan-src
 
 してください。
 
+実際にブレークポイントを張ってデバッグする方法はアドカレの[記事](https://zenn.dev/shimabox/articles/081d559ef044f8 "PHPStanのデバッグを行う方法")を見てみてください。
+
 ## Make
 
 その他の定義は [sample-debug-phpstan/Makefile at main · shimabox/sample-debug-phpstan](https://github.com/shimabox/sample-debug-phpstan/blob/main/Makefile "sample-debug-phpstan/Makefile at main · shimabox/sample-debug-phpstan") を見てください。
