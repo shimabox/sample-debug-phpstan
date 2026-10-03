@@ -1,0 +1,43 @@
+name: Dependency checks
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc # 2.37.1
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:2.9.8
+      - name: Validate dependencies
+        run: composer validate --no-check-publish
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
+      - name: Audit dependencies
+        run: composer audit
+      - name: Analyze source
+        run: composer phpstan -- --no-progress
+      - name: Check locale validation
+        run: |
+          php <<'PHP'
+          <?php
+          require 'vendor/autoload.php';
+          if (!Carbon\Carbon::setLocale('ja')) {
+              throw new RuntimeException('A valid locale must be accepted.');
+          }
+          try {
+              Carbon\Carbon::setLocale('../en');
+          } catch (Symfony\Component\Translation\Exception\InvalidArgumentException $exception) {
+              echo "Valid locale accepted; traversal locale rejected.\n";
+              exit(0);
+          }
+          throw new RuntimeException('A traversal locale must be rejected.');
+          PHP
