@@ -1,6 +1,6 @@
 {
     "require": {
-        "nesbot/carbon": "^2.72"
+        "nesbot/carbon": "^2.72.6"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.10"
